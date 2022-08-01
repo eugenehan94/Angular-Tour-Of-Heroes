@@ -3,9 +3,9 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Hero } from './hero';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class InMemoryDataService {
+export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const heroes = [
       { id: 12, name: 'Dr. Nice' },
@@ -20,7 +20,6 @@ export class InMemoryDataService {
     ];
     return {heroes};
   }
-  constructor() { }
 
   // Overrides the genId method to ensure that a hero always has an id.
   // If the heroes array is empty,
